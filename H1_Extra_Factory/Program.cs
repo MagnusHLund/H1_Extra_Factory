@@ -120,6 +120,4 @@
             return true;
         } 
     }
-
-    // Testing numbers: 12344554056876796709304692 
 }
