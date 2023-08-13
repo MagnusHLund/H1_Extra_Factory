@@ -66,10 +66,11 @@
 
                 for (int i = 0; i < input.Length; i++)
                 {
+                    // Puts product names into string "allProducts" and the weight for the same product, into "productWeight"
                     string allProducts = string.Join(" ", products[packageId[i], 0]);
                     double productWeight = double.Parse(products[packageId[i], 1]);
-                    totalWeight += productWeight;
 
+                    // Takes each packageId, which is basically each user input 
                     for (int j = 0; j < packageId.Length; j++)
                     {
                         if (j >= packageId.Length - 1)
@@ -78,12 +79,18 @@
                             Console.Write($"Product: {allProducts} ");
                             Console.WriteLine($" Weight: {productWeight} kg");
 
-                            if (totalWeight + (productWeight * 2) >= 10)
+                            // Creates a new box, if the limit is exceed
+                            if (totalWeight + productWeight  >= 10)
                             {
                                 box++;
                                 Console.WriteLine($"total weight {totalWeight}");
                                 Console.WriteLine($"Box {box}");
                                 totalWeight = 0;
+                            } 
+                            else
+                            {
+                                // Else adds item to existing box and increases the totalWeight
+                                totalWeight += productWeight;
                             }
                         }
                     }
